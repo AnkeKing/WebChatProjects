@@ -1,4 +1,7 @@
 /**index.wxss**/
+page{
+  background: #B3D4DB;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -6,16 +9,37 @@
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
+  width: 200rpx;
+  height:200rpx;
+  margin: 27rpx;
   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #5A5960;
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-top: 35rpx;
 }
 
 .usermotto {
   margin-top: 200px;
+  color: #5A5960;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.get-btn{
+  font-weight: bold;
+  margin-top: 140rpx !important;
+}
+.open-btn{
+  min-width: 206rpx;
+  height: 88rpx;
+  border: 2rpx solid #345375;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  color: #345375;
 }
