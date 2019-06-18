@@ -1,25 +1,11 @@
-// pages/movies/movies.js
-const api = require("../../config.js");
-const http = require('../../http/index.js');
+// pages/articles/articles.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    //轮播图
-    mySwiper: {
-      imgUrls: [
-        'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-        'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-        'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-      ],
-      indicatorDots: true,
-      autoplay: true,
-      interval: 5000,
-      duration: 1000,
-    },
-    
+
   },
 
   /**
@@ -40,14 +26,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    http(api.in_theaters).then(res => {
-      console.log("-----", res)
-    })
 
   },
-  getMoviesData() {
 
-  },
   /**
    * 生命周期函数--监听页面隐藏
    */
