@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //轮播图
+    //轮播图数据
     mySwiper: {
       imgUrls: [
         'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
@@ -22,7 +22,10 @@ Page({
     movies_list:[],
     movies_title:['正在热映',"即将上映","豆瓣top250"]
   },
-
+  entryDetail(event){
+    console.log("当前movie",event);
+    wx.navigateTo({url: '/pages/moviesDetail/moviesDetail?itemindex='+event.currentTarget.dataset.itemindex})
+  },
   /**
    * 生命周期函数--监听页面加载
    */

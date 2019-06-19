@@ -7,22 +7,21 @@
 <!-- 轮播图 -->
 <swiper indicator-dots="{{mySwiper.indicatorDots}}" autoplay="{{mySwiper.autoplay}}" interval="{{mySwiper.interval}}"
     duration="{{mySwiper.duration}}">
-    <block wx:for="{{mySwiper.imgUrls}}"wx:key="index">
+    <block wx:for="{{mySwiper.imgUrls}}" wx:key="index">
         <swiper-item>
             <image src="{{mySwiper.imgUrls}}" class="slide-image" width="355" height="150" />
         </swiper-item>
     </block>
 </swiper>
 <!-- 电影展示区 -->
-<view class="movies-list-box"wx:for="{{movies_list}}"wx:key="index">
+<view class="movies-list-box" wx:for="{{movies_list}}" wx:key="index">
     <view class="title-box">
         <navigator class="title-one">{{movies_title[index]}}</navigator>
         <navigator class="title-two">更多 ></navigator>
     </view>
     <view class="movies-list">
-        <view class="moview-li"wx:for="{{item.subjects}}"wx:key="index">
-            <image class="movies-img"
-                src="{{item.images.large}}" />
+        <view class="moview-li" wx:for="{{item.subjects}}" wx:key="index" bindtap="entryDetail"data-itemindex="{{item.id}}">
+            <image class="movies-img" src="{{item.images.large}}" />
             <navigator class="movies-name">{{item.original_title}}</navigator>
             <my-rating rating="{{item.rating}}"></my-rating>
         </view>

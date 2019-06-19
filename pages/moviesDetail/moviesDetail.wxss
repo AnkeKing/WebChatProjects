@@ -1,1 +1,26 @@
 /* pages/moviesDetail/moviesDetail.wxss */
+.main-show-box {
+    width: 100%;
+}
+.main-content{
+    width: 100%;
+    height: 322rpx;
+    padding: 58rpx 40rpx 52rpx 40rpx;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+.main-back{
+    filter: url(); /* FireFox, Chrome, Opera */
+    -webkit-filter: blur(2px); /* Chrome, Opera */
+       -moz-filter: blur(2px);
+        -ms-filter: blur(2px);
+            filter: blur(2px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
+.main-text{
+    color: #ffffff;
+    font-size: 44rpx;
+    font-weight: bold;
+}

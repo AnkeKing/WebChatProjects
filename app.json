@@ -1,15 +1,16 @@
 {
   "pages": [
+    "pages/moviesDetail/moviesDetail",
     "pages/movies/movies",
     "pages/index/index",
-    "pages/articles/articles",
-    "pages/moviesDetail",
-    "pages/moviesDetail/moviesDetail"
+    "pages/articles/articles"
+    
   ],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#405F80",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#999999",

@@ -1,2 +1,8 @@
-<!--pages/moviesDetail/moviesDetail.wxml-->
-<text>pages/moviesDetail/moviesDetail.wxml</text>
+<!-- pages/moviesDetail/moviesDetail.wxml -->
+<view class="main-show-box">
+    <image src="{{currentMovie.images.large}}"class="main-back"/>
+    <!-- <canvas canvas-id='myCanvas' class="main-canvas"></canvas> -->
+    <view class="main-content">
+        <text class="main-text">{{currentMovie.original_title}}</text>
+    </view>
+</view>
