@@ -19,13 +19,20 @@ Page({
       interval: 5000,
       duration: 1000,
     },
-    
+    in_theaters:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    http(api.in_theaters).then(res => {
+      
+      this.setData({
+        in_theaters:res.data
+      })
+      console.log("-----",this.data.in_theaters)
+    })
 
   },
 
@@ -40,10 +47,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    http(api.in_theaters).then(res => {
-      console.log("-----", res)
-    })
-
+   
   },
   getMoviesData() {
 

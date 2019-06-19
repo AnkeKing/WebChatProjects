@@ -14,20 +14,15 @@
 
 <view class="movies-list-box">
     <view class="title-box">
-        <navigator>正在热映</navigator>
-        <navigator>更多 ></navigator>
+        <navigator class="title-one">正在热映</navigator>
+        <navigator class="title-two">更多 ></navigator>
     </view>
     <view class="movies-list">
-        <view class="moview-li">
-            <image src="https://img1.doubanio.com/view/photo/s_ratio_poster/public/p2519994468.jpg" />
-            <navigator>巴啦啦能量</navigator>
+        <view class="moview-li"wx:for="{{in_theaters.subjects}}"wx:key="index">
+            <image class="movies-img"
+                src="{{item.images.large}}" />
+            <navigator class="movies-name">{{item.original_title}}</navigator>
+            <my-rating rating="{{item.rating}}"><text slot="score">{{item.rating.average}}</text></my-rating>
         </view>
-    </view>
-    <view class="rating-box">
-        <image src="../../images/star.png" />
-        <image src="../../images/star.png" />
-        <image src="../../images/star.png" />
-        <image src="../../images/star.png" />
-        <image src="../../images/star.png" />
     </view>
 </view>

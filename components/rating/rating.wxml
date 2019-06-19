@@ -1,0 +1,9 @@
+<view class="rating-box">
+    <view class="star-box">
+        <image class="star" src="{{item}}" wx:for="{{starActiveArr}}"wx:key="index"/>??
+        <image class="star" src="{{item}}" wx:for="{{starGrayArr}}"wx:key="index"/>
+    </view>
+    <view class="movies-text">
+        <slot name="score":rating="rating"></slot>
+    </view>
+</view>

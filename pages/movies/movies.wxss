@@ -1,12 +1,14 @@
 /* pages/movies/movies.wxss */
-page{
+page {
     background: #F2F2F2;
-  }
-.search-box{
+}
+
+.search-box {
     width: 100%;
     height: 80rpx;
 }
-.search-box{
+
+.search-box {
     width: 100%;
     height: 80rpx;
     position: relative;
@@ -16,21 +18,25 @@ page{
     display: flex;
     align-items: center;
 }
-.search-box>.search-icon{
+
+.search-box>.search-icon {
     position: absolute;
     top: 26rpx;
     left: 20rpx;
 }
-.search-box>.search-placeholder{/* placeholder的样式 */
+
+.search-box>.search-placeholder {
+    /* placeholder的样式 */
     color: #D1D1D1;
     font-size: 30rpx;
 }
-.search-box>.search-input{
+
+.search-box>.search-input {
     margin-left: 108rpx;
 }
-.movies-list-box{
+
+.movies-list-box {
     width: 100%;
-    height: 492rpx;
     padding: 48rpx 28rpx 22rpx 28rpx;
     display: flex;
     flex-direction: column;
@@ -38,35 +44,51 @@ page{
     margin-top: 30rpx;
     box-sizing: border-box;
 }
-.title-box{
+
+.title-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20rpx;
+    margin-bottom: 28rpx;
 }
-.title-box>a:nth-of-type(1){
+
+.title-box>.title-one {
     color: #70797A;
     font-size: 30rpx;
 }
-.title-box>a:nth-of-type(2){
+
+.title-box>.title-two {
     color: #5153A5;
     font-size: 30rpx;
 }
-.movies-list{
-    border: 1px solid green;
+
+.movies-list {
     display: flex;
-    justify-content: space-between;
+    overflow-x: scroll;
+    width: 100%;
 }
-.movies-list>.moview-li{
+
+.movies-list>.moview-li {
+    min-width:200rpx;
+    max-width: 200rpx;
+    height: 370rpx;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid green;
+    margin-right: 45rpx;
 }
 
-.rating-box{
-    border: 1px solid blueviolet;
+.moview-li>.movies-img {
+    width: 100%;
 }
-.rating-box{
 
+.moview-li>.movies-name {
+    color: #666666;
+    font-size: 32rpx;
+    margin: 20rpx 0 20rpx 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    height: 79rpx;
 }
+

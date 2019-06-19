@@ -1,0 +1,17 @@
+.rating-box {
+    display: flex;
+    align-items: center;
+}
+.rating-box>.movies-text{
+    color: #1F3463;
+    font-size: 36rpx;
+}
+.rating-box>.star-box{
+    display: flex;
+    margin-right: 24rpx;
+}
+.rating-box>.star-box> .star {
+    width: 17rpx;
+    height: 17rpx;
+    margin-right: 4rpx;
+}

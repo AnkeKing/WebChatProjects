@@ -28,5 +28,8 @@
       }
     ]
   },
+  "usingComponents": {
+    "my-rating": "./components/rating/rating"
+  },
   "sitemapLocation": "sitemap.json"
 }
