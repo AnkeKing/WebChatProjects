@@ -1,9 +1,10 @@
 <view class="rating-box">
     <view class="star-box">
-        <image class="star" src="{{item}}" wx:for="{{starActiveArr}}"wx:key="index"/>??
-        <image class="star" src="{{item}}" wx:for="{{starGrayArr}}"wx:key="index"/>
+        <image class="star" src="../../images/star-active.png"wx:for="{{starNum}}"wx:key="index"/>
+        <image class="star" src="../../images/star.png"wx:for="{{max-starNum}}"wx:key="index"/>
     </view>
     <view class="movies-text">
-        <slot name="score":rating="rating"></slot>
+         <wxs module="rat" src="../../utils/countStart.wxs"></wxs>
+         {{rat.setScore(rating.average)}}
     </view>
 </view>

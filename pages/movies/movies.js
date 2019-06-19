@@ -19,21 +19,35 @@ Page({
       interval: 5000,
       duration: 1000,
     },
-    in_theaters:{}
+    movies_list:[],
+    movies_title:['正在热映',"即将上映","豆瓣top250"]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    http(api.in_theaters).then(res => {
-      
+    var that=this;
+    let movies_list=that.data.movies_list;
+    http(api.in_theaters).then(res => {//正在热映
+      movies_list.push(res.data);
       this.setData({
-        in_theaters:res.data
+        movies_list:movies_list
       })
-      console.log("-----",this.data.in_theaters)
     })
-
+    http(api.coming_soon).then(res => {//即将上映
+      movies_list.push(res.data);
+      this.setData({
+        movies_list:movies_list
+      })
+    })
+    http(api.top250).then(res => {//top250
+      movies_list.push(res.data);
+      this.setData({
+        movies_list:movies_list
+      })
+    })
+    console.log("-----",this.data.movies_list)
   },
 
   /**

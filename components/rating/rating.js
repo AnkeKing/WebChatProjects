@@ -11,23 +11,17 @@ Component({
   },
 
   data: {
-    starActiveArr: [],
-    starGrayArr: []
+    starNum:0,
+    max:0,
   }, // 私有数据，可用于模板渲染
 
   lifetimes: {
     // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
     attached: function () {
-      // console.log("rating", this.data.rating);
-      let max=Math.floor(this.data.rating.max/2);
-      for (let s = 0; s < Math.floor(this.data.rating.average / 2); s++) {
-        this.data.starActiveArr.push({"activeImg":"../../images/star-active.png"});
-      }
-      for (let s = 0; s < max - Math.floor(this.data.rating.average / 2); s++) {
-        this.data.starGrayArr.push({"grayImg":"../../images/star.png"});
-      }
-      console.log("active", this.data.starActiveArr);
-      console.log("gray", this.data.starGrayArr)
+      this.setData({
+        starNum:Math.floor(this.data.rating.average/2),
+        max:parseInt(this.data.rating.max/2)
+      })
     },
     moved: function () { },
     detached: function () { },
