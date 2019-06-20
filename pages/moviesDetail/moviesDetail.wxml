@@ -1,8 +1,64 @@
 <!-- pages/moviesDetail/moviesDetail.wxml -->
 <view class="main-show-box">
-    <image src="{{currentMovie.images.large}}"class="main-back"/>
-    <!-- <canvas canvas-id='myCanvas' class="main-canvas"></canvas> -->
-    <view class="main-content">
-        <text class="main-text">{{currentMovie.original_title}}</text>
+    <view class="main-back-box">
+        <image src="{{currentMovie.images.large}}" class="main-back" />
     </view>
+    <view class="main-content">
+        <text class="main-title overflow-txt">{{currentMovie.title}}</text>
+        <text class="main-data">{{currentMovie.countries}} · {{currentMovie.year}}</text>
+        <view class="main-like-box">
+            <view class="like">
+                <text class="main-red">{{currentMovie.wish_count}}</text>
+                <text class="main-gray">人喜欢</text>
+            </view>
+            <view class="comment">
+                <text class="main-red">{{currentMovie.comments_count}}</text>
+                <text class="main-gray">条评论</text>
+            </view>
+        </view>
+    </view>
+    <image src="{{currentMovie.images.large}}" class="main-image" />
+</view>
+<view class="about-movie-box">
+    <text class="about-director-title overflow-txt">{{currentMovie.original_title}}</text>
+    <view class="about-director-ul">
+        <view class="about-director-li">
+            <text class="about-director-gray">评分</text>
+            <my-rating wx:if="{{currentMovie.rating}}"rating="{{currentMovie.rating}}"></my-rating>
+        </view>
+        <view class="about-director-li">
+            <text class="about-director-gray">导演</text>
+            <text class="about-director-black">{{currentMovie.directors[0].name}}</text>
+        </view>
+        <view class="about-director-li">
+            <text class="about-director-gray">影人</text>
+            <text class="about-director-black  overflow-txt overflow-txt-actors">
+                <block wx:for="{{currentMovie.casts}}"wx:key="index"wx:if="{{index<currentMovie.casts.length-1}}">{{item.name}}/</block>
+                <block>{{currentMovie.casts[currentMovie.casts.length-1].name}}</block>
+            </text>
+        </view>
+        <view class="about-director-li">
+            <text class="about-director-gray">类型</text>
+            <text class="about-director-black">
+                <block wx:for="{{currentMovie.genres}}"wx:key="index"wx:if="{{index<currentMovie.genres.length-1}}">{{item}}、</block>
+                <block>{{currentMovie.genres[currentMovie.genres.length-1]}}</block>
+            </text>
+        </view>
+    </view>
+</view>
+<view class="about-movie-box ">
+    <text class="about-director-gray">剧情介绍</text>
+    <text class="about-director-black movie-plot"wx:if="{{currentMovie.summary!=''}}">{{currentMovie.summary}}</text>
+    <text class="about-director-black movie-plot"wx:else>暂无剧情介绍</text>
+</view>
+<view class="about-movie-box ">
+    <text class="about-director-gray">影人</text>
+    <view class="movie-actors-box">
+    <view class="movie-actors-li" wx:for="{{currentMovie.casts}}" wx:key="index" >
+        <image src="{{item.avatars.large}}"class="actor-photo"/>
+        <text class="about-director-black overflow-txt">{{item.name}}</text>
+    </view>
+ 
+    </view>
+    
 </view>

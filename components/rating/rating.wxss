@@ -11,7 +11,7 @@
     margin-right: 24rpx;
 }
 .rating-box>.star-box> .star {
-    width: 17rpx;
-    height: 17rpx;
-    margin-right: 4rpx;
+    width: 18rpx;
+    height: 18rpx;
+    margin-right: 6rpx;
 }

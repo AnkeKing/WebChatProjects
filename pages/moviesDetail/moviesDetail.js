@@ -8,30 +8,24 @@ Page({
    */
   data: {
     currentMovie: {},
-    windowWidth:wx.getSystemInfoSync().windowWidth,
-    windowHeight:wx.getSystemInfoSync().windowHeight,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // http(api.detail+options.itemindex).then(res => {//电影详情
-    //   console.log("怎么肥事",res.data);
+    http(api.detail+options.itemindex).then(res => {//电影详情
+      console.log("怎么肥事",res.data);
+      this.setData({
+        currentMovie:res.data
+      })
+    })
+    // http(api.detail + "3").then(res => {//临时
+    //   console.log("怎么肥事", res.data);
     //   this.setData({
-    //     currentMovie:res.data
+    //     currentMovie: res.data,
     //   })
     // })
-    http(api.detail + "305").then(res => {//临时
-      console.log("怎么肥事", res.data);
-      this.setData({
-        currentMovie: res.data
-      })
-      //画图
-      // var ctx = wx.createCanvasContext('myCanvas');
-      // ctx.drawImage(this.data.currentMovie.images.large, 0, 0, this.data.windowWidth,this.data.windowHeight);
-      // ctx.draw();
-    })
 
   },
 

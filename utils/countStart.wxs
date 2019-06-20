@@ -7,7 +7,6 @@ var rat = {
         }
     }
 }
-
 module.exports = {//wxs是单例模式
     setScore: rat.setScore
 }

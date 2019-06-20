@@ -1,8 +1,41 @@
 /* pages/moviesDetail/moviesDetail.wxss */
 .main-show-box {
     width: 100%;
+    position: relative;
 }
-.main-content{
+
+.main-back-box {
+    /* 背景图 */
+    width: 100%;
+    height: 322rpx;
+    background: black;
+    overflow: hidden;
+}
+
+.main-back-box:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0px 0px 37px 14px rgba(255, 255, 255, .5) inset;
+    border-bottom: none;
+}
+
+.main-back {
+    height: 100vh;
+    -webkit-filter: blur(3px);
+    /* Chrome, Opera */
+    -moz-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false);
+    /* IE6~IE9 */
+}
+
+.main-content {
+    /* 内容区 */
     width: 100%;
     height: 322rpx;
     padding: 58rpx 40rpx 52rpx 40rpx;
@@ -10,17 +43,127 @@
     position: absolute;
     top: 0px;
     left: 0px;
+    display: flex;
+    flex-direction: column;
 }
-.main-back{
-    filter: url(); /* FireFox, Chrome, Opera */
-    -webkit-filter: blur(2px); /* Chrome, Opera */
-       -moz-filter: blur(2px);
-        -ms-filter: blur(2px);
-            filter: blur(2px);
-    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
-}
-.main-text{
+
+.main-title {
     color: #ffffff;
     font-size: 44rpx;
     font-weight: bold;
+    width: 70%;
+    height: 92rpx;
+}
+
+.main-data {
+    color: #ffffff;
+    font-size: 28rpx;
+    margin: 40rpx 0 60rpx 0;
+    font-weight: bold;
+}
+
+.main-like-box {
+    display: flex;
+    align-items: center;
+}
+
+.main-like-box>.like {
+    margin-right: 34rpx;
+}
+
+.main-red {
+    color: #F21146;
+    font-size: 24rpx;
+    margin-right: 14rpx;
+    font-weight: bold;
+}
+
+.main-gray {
+    color: #666666;
+    font-size: 24rpx;
+    font-weight: bold;
+}
+
+.main-image {
+    position: absolute;
+    top: 160rpx;
+    right: 28rpx;
+    width: 177rpx;
+    height: 242rpx;
+}
+
+.about-movie-box {
+    width: 100%;
+    /* height:324rpx; */
+    padding: 43rpx 34rpx 50rpx 34rpx;
+    border-bottom: 1px solid #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.about-director-title {
+    font-size: 34rpx;
+    color: #666666;
+    font-weight: bold;
+    font-family: "楷体";
+    width: 60%;
+    height: 82rpx;
+}
+
+.about-director-ul {
+    margin-top: 43rpx;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.about-director-li {
+    display: flex;
+    margin-bottom: 15rpx;
+    align-items: center;
+}
+
+.about-director-gray {
+    min-width: 60rpx;
+    color: #B6B6B6;
+    font-size: 24rpx;
+    margin-right: 28rpx;
+}
+
+.overflow-txt-actors {
+    width: 77%;
+    height: 42rpx;
+}
+
+.about-director-black {
+    color: #7C7C7C;
+    font-size: 26rpx;
+    letter-spacing: 6rpx;
+}
+
+.movie-plot {
+    margin-top: 30rpx;
+}
+
+.movie-actors-box {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 40rpx;
+}
+.movie-actors-li{
+    margin-right: 37rpx;
+    min-width: 172rpx;
+    max-width: 172rpx;
+}
+.about-director-black{
+   width:100%;
+   height: 60rpx;
+   display: -webkit-box;
+}
+.actor-photo {
+    width: 100%;
+    height: 172rpx;
+    margin-bottom: 26rpx;
 }

@@ -22,7 +22,7 @@
     <view class="movies-list">
         <view class="moview-li" wx:for="{{item.subjects}}" wx:key="index" bindtap="entryDetail"data-itemindex="{{item.id}}">
             <image class="movies-img" src="{{item.images.large}}" />
-            <navigator class="movies-name">{{item.original_title}}</navigator>
+            <navigator class="movies-name  overflow-txt">{{item.original_title}}</navigator>
             <my-rating rating="{{item.rating}}"></my-rating>
         </view>
     </view>
