@@ -1,0 +1,10 @@
+<!-- pages/search/search.wxml -->
+<!-- 搜索展示区 -->
+<view class="{{searchData.count!=0?'search-list-box':'search-list-box2'}}">
+    <view class="search-list-li" wx:if="{{searchData.count!=0}}" wx:for="{{searchData.subjects}}" wx:key="index">
+        <image src="{{item.images.large}}" />
+        <text class="movie-name overflow-txt">{{item.original_title}}</text>
+        <my-rating rating="{{item.rating}}"></my-rating>
+    </view>
+    <text wx:if="{{searchData.count==0}}" class="search-null">暂无匹配数据</text>
+</view>

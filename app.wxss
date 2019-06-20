@@ -15,3 +15,40 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.search-list-box,.search-list-box2{
+  width: 100%;
+  height: 100vh;
+  padding: 37rpx 28rpx 0 28rpx;
+  display: flex;
+}
+.search-list-box{
+  flex-wrap: wrap;
+}
+.search-list-box2{
+  justify-content: center;
+}
+.search-list-li{
+  width: 204rpx;
+  margin-right: 44rpx;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+.search-list-li>image{
+  width: 100%;
+  height: 274rpx;
+}
+.search-list-li>.movie-name{
+  width: 100%;
+  height: 40rpx;
+  color: #7C7C7C;
+  font-size: 26rpx;
+  letter-spacing: 6rpx;
+  margin-top: 20rpx;
+}
+.search-null{
+  color: #7C7C7C;
+  font-size: 36rpx;
+  letter-spacing: 6rpx;
+  margin-top: 60rpx;
+}

@@ -19,40 +19,67 @@ Page({
       interval: 5000,
       duration: 1000,
     },
-    movies_list:[],
-    movies_title:['正在热映',"即将上映","豆瓣top250"]
+    movies_list: [],
+    movies_title: ['正在热映', "即将上映", "豆瓣top250"],
+    hasTxt: false,
+    keyword: "",
   },
-  entryDetail(event){
-    console.log("当前movie",event);
-    wx.navigateTo({url: '/pages/moviesDetail/moviesDetail?itemindex='+event.currentTarget.dataset.itemindex})
+  entryDetail(event) {
+    wx.navigateTo({ url: '/pages/moviesDetail/moviesDetail?itemindex=' + event.currentTarget.dataset.itemindex })
+  },
+  toSearch(event) {
+    this.setData({
+      keyword: event.detail.value
+    })
+    wx.navigateTo({ url: '/pages/search/search?keyword=' + this.data.keyword });
+    if (event.detail.value != "") {
+      this.setData({
+        hasTxt: true
+      })
+    } else {
+      this.setData({
+        hasTxt: false
+      })
+    }
+  },
+  clearTxt() {
+    this.setData({
+      keyword: "",
+      hasTxt: false
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that=this;
-    let movies_list=that.data.movies_list;
+    var app = getApp();
+    var that = this;
+    let movies_list = that.data.movies_list;
     http(api.in_theaters).then(res => {//正在热映
       movies_list.push(res.data);
       this.setData({
-        movies_list:movies_list
+        movies_list: movies_list
       })
     })
     http(api.coming_soon).then(res => {//即将上映
       movies_list.push(res.data);
       this.setData({
-        movies_list:movies_list
+        movies_list: movies_list
       })
     })
     http(api.top250).then(res => {//top250
       movies_list.push(res.data);
       this.setData({
-        movies_list:movies_list
+        movies_list: movies_list
       })
     })
-    console.log("-----",this.data.movies_list)
+    app.globalData.movies_list = this.data.movies_list;
   },
-
+  entryArea(event) {
+    var areamsg = event.currentTarget.dataset.areamsg;
+    wx.navigateTo({ url: '/pages/moviesSpecialArea/moviesSpecialArea?areamsg=' + areamsg + "&title=" + this.data.movies_title[areamsg] });
+    console.log(event.currentTarget.dataset.areamsg)
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -64,7 +91,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
   getMoviesData() {
 

@@ -1,25 +1,22 @@
-// pages/moviesDetail/moviesDetail.js
-const api = require("../../config.js");
-const http = require('../../http/index.js');
+// pages/hotShowing/hotShowing.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    currentMovie: {},
+    currentMovies:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    http(api.detail+options.itemindex).then(res => {//电影详情
-      console.log("电影详情",res.data);
-      this.setData({
-        currentMovie:res.data
-      })
+    var app=getApp(); 
+    this.setData({
+      currentMovies:app.globalData.movies_list[options.areamsg]
     })
+    wx.setNavigationBarTitle({  title: options.title})
   },
 
   /**

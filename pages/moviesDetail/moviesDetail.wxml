@@ -46,7 +46,7 @@
         </view>
     </view>
 </view>
-<view class="about-movie-box ">
+<view class="about-movie-box">
     <text class="about-director-gray">剧情介绍</text>
     <text class="about-director-black movie-plot"wx:if="{{currentMovie.summary!=''}}">{{currentMovie.summary}}</text>
     <text class="about-director-black movie-plot"wx:else>暂无剧情介绍</text>
@@ -54,11 +54,10 @@
 <view class="about-movie-box ">
     <text class="about-director-gray">影人</text>
     <view class="movie-actors-box">
-    <view class="movie-actors-li" wx:for="{{currentMovie.casts}}" wx:key="index" >
-        <image src="{{item.avatars.large}}"class="actor-photo"/>
-        <text class="about-director-black overflow-txt">{{item.name}}</text>
-    </view>
- 
+        <view class="movie-actors-li" wx:for="{{currentMovie.casts}}" wx:key="index" >
+            <image src="{{item.avatars.large}}"class="actor-photo"/>
+            <text class="about-director-black overflow-txt">{{item.name}}</text>
+        </view>
     </view>
     
 </view>

@@ -94,7 +94,6 @@
 
 .about-movie-box {
     width: 100%;
-    /* height:324rpx; */
     padding: 43rpx 34rpx 50rpx 34rpx;
     border-bottom: 1px solid #D9D9D9;
     display: flex;
@@ -157,7 +156,7 @@
     min-width: 172rpx;
     max-width: 172rpx;
 }
-.about-director-black{
+.movie-actors-li .about-director-black{
    width:100%;
    height: 60rpx;
    display: -webkit-box;

@@ -1,18 +1,25 @@
-// pages/moviesDetail.js
+// pages/search/search.js
+const api = require("../../config.js");
+const http = require('../../http/index.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    searchData:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    http(api.search+"?q="+options.keyword).then(res => {//top250
+      console.log("啦啦啦",res.data);
+      this.setData({
+        searchData:res.data
+      })
+    })
   },
 
   /**

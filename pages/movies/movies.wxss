@@ -24,7 +24,13 @@ page {
     top: 26rpx;
     left: 20rpx;
 }
-
+.cancel{
+    position: absolute;
+    width: 47rpx;
+    height: 47rpx;
+    top: 20rpx;
+    right: 20rpx;
+}
 .search-box>.search-placeholder {
     /* placeholder的样式 */
     color: #D1D1D1;
@@ -88,4 +94,3 @@ page {
     width: 100%;
     height: 79rpx;
 }
-
