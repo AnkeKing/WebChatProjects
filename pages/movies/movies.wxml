@@ -1,8 +1,8 @@
 <!-- pages/movies/movies.wxml -->
 <!-- 搜索框 -->
 <view class="search-box">
-    <icon type="search" size="13" color="#405F80" class="search-icon"/>
-    <input type="text" placeholder="血战钢锯岭.你的名字" value="{{keyword}}" placeholder-class="search-placeholder" bindinput="toSearch" class="search-input" />
+    <icon type="search" size="13" color="#405F80" class="search-icon" bindtap="toSearch" />
+    <input type="text" placeholder="血战钢锯岭.你的名字" value="{{keyword}}" placeholder-class="search-placeholder"bindinput="setValue" class="search-input" />
     <image src="../../images/icon_wrong_line.png"class="cancel"wx:if="{{hasTxt}}"bindtap="clearTxt"/>
 </view>
 <!-- 轮播图 -->

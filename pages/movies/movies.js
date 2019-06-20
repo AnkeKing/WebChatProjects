@@ -27,11 +27,10 @@ Page({
   entryDetail(event) {
     wx.navigateTo({ url: '/pages/moviesDetail/moviesDetail?itemindex=' + event.currentTarget.dataset.itemindex })
   },
-  toSearch(event) {
+  setValue(event){
     this.setData({
       keyword: event.detail.value
     })
-    wx.navigateTo({ url: '/pages/search/search?keyword=' + this.data.keyword });
     if (event.detail.value != "") {
       this.setData({
         hasTxt: true
@@ -41,6 +40,9 @@ Page({
         hasTxt: false
       })
     }
+  },
+  toSearch() {
+    wx.navigateTo({ url: '/pages/search/search?keyword=' + this.data.keyword });
   },
   clearTxt() {
     this.setData({

@@ -1,18 +1,42 @@
 // pages/articles/articles.js
+const api = require("../../config.js");
+const http = require('../../http/index.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    newsData:[],
+    //轮播图数据
+    mySwiper: {
+      imgUrls: [],
+      indicatorDots: true,
+      autoplay: true,
+      interval: 5000,
+      duration: 1000,
+    },
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let imgUrls=[];
+    http(api.news_list).then(res => {//新闻列表
+      for(var i=0;i<3;i++){
+        imgUrls.push(res.data[0].headImgSrc);
+        var str ="mySwiper.imgUrls";
+        this.setData({
+          [str]: imgUrls,
+          newsData: res.data,
+        })
+      }
 
+      
+      console.log("--",res.data);
+      console.log("img",this.data.imgUrls);
+    })
   },
 
   /**
