@@ -1,6 +1,6 @@
 <!--pages/hotShowing/hotShowing.wxml-->
 <view class="search-list-box">
-        <view class="search-list-li" wx:for="{{currentMovies.subjects}}" wx:key="index">
+        <view class="search-list-li" wx:for="{{currentMovies.subjects}}" wx:key="index" bindtap="entryDetail"data-itemindex="{{item.id}}">
             <image src="{{item.images.large}}" />
             <text class="movie-name overflow-txt">{{item.original_title}}</text>
             <my-rating rating="{{item.rating}}"></my-rating>

@@ -24,6 +24,7 @@
 }
 
 .main-back {
+    width: 100vw;
     height: 100vh;
     -webkit-filter: blur(3px);
     /* Chrome, Opera */
@@ -36,7 +37,7 @@
 
 .main-content {
     /* 内容区 */
-    width: 100%;
+    width: 100vw;
     height: 322rpx;
     padding: 58rpx 40rpx 52rpx 40rpx;
     box-sizing: border-box;
@@ -52,7 +53,7 @@
     font-size: 44rpx;
     font-weight: bold;
     width: 70%;
-    height: 92rpx;
+    height: 100rpx;
 }
 
 .main-data {

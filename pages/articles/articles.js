@@ -22,6 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var app = getApp();
     let imgUrls=[];
     http(api.news_list).then(res => {//新闻列表
       for(var i=0;i<3;i++){
@@ -32,13 +33,14 @@ Page({
           newsData: res.data,
         })
       }
-
-      
+      app.globalData.newsData = this.data.newsData;
       console.log("--",res.data);
-      console.log("img",this.data.imgUrls);
     })
   },
-
+  entryDetail(event){
+    wx.navigateTo({ url: '/pages/articlesDetail/articlesDetail?itemindex=' +  event.currentTarget.dataset.itemindex});
+   
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

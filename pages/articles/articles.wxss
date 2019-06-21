@@ -1,17 +1,20 @@
 /* pages/articles/articles.wxss */
 .articles-frist{
-    width: 100%;
+    width: 100vw;
     position: relative;
     padding-bottom: 24rpx;
     background: #F8F8F8;
     border-bottom: 1px solid #EDEDED;
 }
 .swiper-box{
-    width: 100%;
+    width: 100vw;
     height: 580rpx;
 }
+.swiper-box image{
+    width: 100vw;
+}
 .articles-frist .articles-content{
-    width: 100%;
+    width: 100vw;
     padding: 122rpx 0 115rpx 28rpx;
     position: absolute;
     top: 0px;
@@ -49,6 +52,9 @@
     padding: 16rpx 0 16rpx 0;
     border-bottom: 1px solid #EDEDED;
     box-sizing: border-box;
+}
+.articles-li>image{
+    width: 100vw;
 }
 .articles-li .articles-date{
     font-size: 28rpx;

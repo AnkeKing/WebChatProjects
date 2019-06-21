@@ -1,0 +1,19 @@
+<!--pages/articlesDetail/articlesDetail.wxml-->
+<view class="main-img">
+    <image src="{{currentNews.headImgSrc}}"/>
+</view>
+<view class="news-msg">
+    <view class="articles-user-msg">
+        <image class="user-head-portrait" src="{{currentNews.avatar}}" />
+        <text class="articles-author">{{currentNews.author}}</text>
+        <text class="articles-gray">发表于</text>
+        <text class="articles-date"wx:if="{{currentNews.dateTime}}">{{currentNews.dateTime}}</text>
+        <text class="articles-date"wx:else>{{currentNews.date}}</text>
+    </view>
+    <text class="articles-title">{{currentNews.title}}</text>
+    <view class="hr"></view>
+    <text class="articles-gray">{{currentNews.content}}</text>
+    <view class="hr"></view>
+    <text class="articles-gray">{{currentNews.detail}}</text>
+</view>
+

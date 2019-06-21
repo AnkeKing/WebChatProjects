@@ -1,27 +1,22 @@
-// pages/hotShowing/hotShowing.js
+// pages/articlesDetail/articlesDetail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    currentMovies:{}
+    currentNews:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var app=getApp(); 
     this.setData({
-      currentMovies:app.globalData.movies_list[options.areamsg]
+      currentNews:getApp().globalData.newsData[options.itemindex]
     })
-    wx.setNavigationBarTitle({  title: options.title})
   },
-  entryArea(event) {
-    var areamsg = event.currentTarget.dataset.areamsg;
-    wx.navigateTo({ url: '/pages/moviesSpecialArea/moviesSpecialArea?areamsg=' + areamsg + "&title=" + this.data.movies_title[areamsg] });
-  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

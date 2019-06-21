@@ -35,6 +35,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    movies_list:[]
+    movies_list:[],
+    newsData:[]
   }
 })

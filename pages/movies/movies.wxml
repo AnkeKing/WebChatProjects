@@ -6,7 +6,7 @@
     <image src="../../images/icon_wrong_line.png"class="cancel"wx:if="{{hasTxt}}"bindtap="clearTxt"/>
 </view>
 <!-- 轮播图 -->
-<swiper indicator-dots="{{mySwiper.indicatorDots}}" autoplay="{{mySwiper.autoplay}}" interval="{{mySwiper.interval}}"
+<swiper indicator-dots="{{mySwiper.indicatorDots}}" class="swiper-box" autoplay="{{mySwiper.autoplay}}" interval="{{mySwiper.interval}}"
     duration="{{mySwiper.duration}}">
     <block wx:for="{{mySwiper.imgUrls}}" wx:key="index">
         <swiper-item>

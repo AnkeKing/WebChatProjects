@@ -10,7 +10,7 @@
     </swiper>
     <view class="articles-content">
         <text class="articles-date">{{newsData[0].date}}</text>
-        <text class="articles-title">{{newsData[0].title}}</text>
+        <text class="articles-title"bindtap="entryDetail"data-itemindex="0">{{newsData[0].title}}</text>
         <view class="articles-user-msg">
             <image class="user-head-portrait" src="{{newsData[0].avatar}}" />
             <text class="articles-author">{{newsData[0].author}}</text>
@@ -22,6 +22,6 @@
         <image class="user-head-portrait" src="{{item.avatar}}" />
         <text class="articles-date">{{item.date}}</text>
     </view>
-    <text class="articles-title overflow-txt">{{item.title}}</text>
+    <text class="articles-title overflow-txt"bindtap="entryDetail"data-itemindex="{{index}}">{{item.title}}</text>
     <image src="{{item.headImgSrc}}"/>
 </view>

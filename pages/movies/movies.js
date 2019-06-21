@@ -42,7 +42,9 @@ Page({
     }
   },
   toSearch() {
-    wx.navigateTo({ url: '/pages/search/search?keyword=' + this.data.keyword });
+    if(this.data.keyword!=""){
+      wx.navigateTo({ url: '/pages/search/search?keyword=' + this.data.keyword });
+    }
   },
   clearTxt() {
     this.setData({
@@ -62,17 +64,19 @@ Page({
       this.setData({
         movies_list: movies_list
       })
-    })
-    http(api.coming_soon).then(res => {//即将上映
-      movies_list.push(res.data);
-      this.setData({
-        movies_list: movies_list
+    }).then(res=>{
+      http(api.coming_soon).then(res => {//即将上映
+        movies_list.push(res.data);
+        this.setData({
+          movies_list: movies_list
+        })
       })
-    })
-    http(api.top250).then(res => {//top250
-      movies_list.push(res.data);
-      this.setData({
-        movies_list: movies_list
+    }).then(res=>{
+      http(api.top250).then(res => {//top250
+        movies_list.push(res.data);
+        this.setData({
+          movies_list: movies_list
+        })
       })
     })
     app.globalData.movies_list = this.data.movies_list;
@@ -80,7 +84,6 @@ Page({
   entryArea(event) {
     var areamsg = event.currentTarget.dataset.areamsg;
     wx.navigateTo({ url: '/pages/moviesSpecialArea/moviesSpecialArea?areamsg=' + areamsg + "&title=" + this.data.movies_title[areamsg] });
-    console.log(event.currentTarget.dataset.areamsg)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
