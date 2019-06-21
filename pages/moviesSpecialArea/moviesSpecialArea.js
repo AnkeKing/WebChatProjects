@@ -18,9 +18,8 @@ Page({
     })
     wx.setNavigationBarTitle({  title: options.title})
   },
-  entryArea(event) {
-    var areamsg = event.currentTarget.dataset.areamsg;
-    wx.navigateTo({ url: '/pages/moviesSpecialArea/moviesSpecialArea?areamsg=' + areamsg + "&title=" + this.data.movies_title[areamsg] });
+  entryDetail(event) {
+    wx.navigateTo({ url: '/pages/moviesDetail/moviesDetail?itemindex=' + event.currentTarget.dataset.itemindex })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
