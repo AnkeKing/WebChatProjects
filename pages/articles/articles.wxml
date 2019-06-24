@@ -1,7 +1,7 @@
 <!-- pages/articles/articles.wxml -->
-<view class="articles-frist">
+<!-- <view class="articles-frist"> -->
     <!-- 轮播图 -->
-    <swiper class="swiper-box" wx:if="{{mySwiper.imgUrls.length>0}}" indicator-dots="{{mySwiper.indicatorDots}}" autoplay="{{mySwiper.autoplay}}" interval="{{mySwiper.interval}}" duration="{{mySwiper.duration}}">
+    <!-- <swiper class="swiper-box" wx:if="{{mySwiper.imgUrls.length>0}}" indicator-dots="{{mySwiper.indicatorDots}}" autoplay="{{mySwiper.autoplay}}" interval="{{mySwiper.interval}}" duration="{{mySwiper.duration}}">
         <block wx:for="{{mySwiper.imgUrls}}" wx:key="index">
             <swiper-item>
                 <image src="{{mySwiper.imgUrls}}" class="slide-image" width="355" height="150" />
@@ -16,12 +16,12 @@
             <text class="articles-author">{{newsData[0].author}}</text>
         </view>
     </view>
-</view>
-<view class="articles-li" wx:for="{{newsData}}" wx:key="index"wx:if="{{index>0}}">
+</view> -->
+<!-- <view class="articles-li" wx:for="{{newsData}}" wx:key="index"wx:if="{{index>0}}">
     <view class="articles-user-msg">
         <image class="user-head-portrait" src="{{item.avatar}}" />
         <text class="articles-date">{{item.date}}</text>
     </view>
     <text class="articles-title overflow-txt"bindtap="entryDetail"data-itemindex="{{index}}">{{item.title}}</text>
     <image src="{{item.headImgSrc}}"/>
-</view>
+</view> -->

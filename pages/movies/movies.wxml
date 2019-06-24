@@ -21,11 +21,15 @@
         <text class="title-two"bindtap="entryArea"data-areamsg="{{index}}">更多 ></text>
     </view>
     <view class="movies-list">
-        <view class="moview-li" wx:for="{{item.subjects}}" wx:key="index" bindtap="entryDetail"data-itemindex="{{item.id}}">
-            <image class="movies-img" src="{{item.images.large}}" />
-            <text class="movies-name  overflow-txt">{{item.original_title}}</text>
+        <view class="moview-li" wx:for="{{item.subjects}}" wx:key="index">
+            <image class="movies-img" src="{{item.images.large}}"/>
+            <text class="movies-name  overflow-txt" bindtap="entryDetail"data-itemindex="{{item.id}}">{{item.original_title}}</text>
             <my-rating rating="{{item.rating}}"></my-rating>
+            <image src="../../images/save.png"class="share"data-img="{{item.images.large}}" bindtap="saveImg"/>
         </view>
     </view>
 </view>
+<canvas canvas-id='myCanvas' class="main-canvas"style="display:{{show}}"></canvas>
+<image src="../../images/close.png"class="closeSave"style="display:{{show}}" bindtap="closeSave"/>
+
 

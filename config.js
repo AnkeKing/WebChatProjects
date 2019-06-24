@@ -6,5 +6,5 @@ module.exports={
     top250:baseUrl+"top250",//top250
     detail:baseUrl+"subject/",//电影详情
     search:baseUrl+"search",//电影搜索
-    news_list:"https://www.easy-mock.com/mock/5a9654e43d01940a2cdf9980/wechat/news",//新闻列表
+    news_list:"https://www.easy-mock.com/mock/5cd7d1da2be2486a36af3e39/newsData/newsData",//新闻列表
 }

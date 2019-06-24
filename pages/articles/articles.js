@@ -25,15 +25,15 @@ Page({
     var app = getApp();
     let imgUrls=[];
     http(api.news_list).then(res => {//新闻列表
-      for(var i=0;i<3;i++){
-        imgUrls.push(res.data[0].headImgSrc);
-        var str ="mySwiper.imgUrls";
-        this.setData({
-          [str]: imgUrls,
-          newsData: res.data,
-        })
-      }
-      app.globalData.newsData = this.data.newsData;
+      // for(var i=0;i<3;i++){
+      //   imgUrls.push(res.data[0].headImgSrc);
+      //   var str ="mySwiper.imgUrls";
+      //   this.setData({
+      //     [str]: imgUrls,
+      //     newsData: res.data,
+      //   })
+      // }
+      // app.globalData.newsData = this.data.newsData;
       console.log("--",res.data);
     })
   },

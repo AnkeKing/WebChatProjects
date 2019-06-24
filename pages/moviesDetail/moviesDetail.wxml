@@ -1,7 +1,7 @@
 <!-- pages/moviesDetail/moviesDetail.wxml -->
 <view class="main-show-box">
     <view class="main-back-box">
-        <image src="{{currentMovie.images.large}}" class="main-back" />
+        <image src="{{currentMovie.images.large}}" class="main-back"/>
     </view>
     <view class="main-content">
         <text class="main-title overflow-txt">{{currentMovie.title}}</text>

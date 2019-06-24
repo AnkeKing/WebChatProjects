@@ -23,11 +23,13 @@ Page({
     movies_title: ['正在热映', "即将上映", "豆瓣top250"],
     hasTxt: false,
     keyword: "",
+    show: "none",
+    access_token: "",
   },
   entryDetail(event) {
     wx.navigateTo({ url: '/pages/moviesDetail/moviesDetail?itemindex=' + event.currentTarget.dataset.itemindex })
   },
-  setValue(event){
+  setValue(event) {
     this.setData({
       keyword: event.detail.value
     })
@@ -41,8 +43,62 @@ Page({
       })
     }
   },
+  saveImg(event) {
+    this.setData({
+      show: "block"
+    })
+    var ctx = wx.createCanvasContext('myCanvas');
+    var text="图片已保存到相册，可分享给好友";
+    ctx.setFontSize(17)
+    ctx.setFillStyle("#fff");
+    ctx.fillText(text,20,wx.getSystemInfoSync().windowHeight-50);
+    ctx.drawImage(
+      event.currentTarget.dataset.img,//背景图
+      20,
+      20,
+      wx.getSystemInfoSync().windowWidth * 0.77,
+      wx.getSystemInfoSync().windowHeight * 0.77
+    );
+    ctx.draw();
+    ctx.drawImage(
+      '../../images/gh_3e501f63893c_258.jpg',//二维码
+      wx.getSystemInfoSync().windowWidth * 0.77 - 50,
+      wx.getSystemInfoSync().windowHeight * 0.77 - 100,
+      99,
+      99
+    );
+    ctx.draw(true);
+    ctx.draw(true, setTimeout(function () {
+      wx.canvasToTempFilePath({
+        x: 20,
+        y: 20,
+        width: 300,
+        height: 600,
+        destWidth: 300,
+        destHeight: 500,
+        canvasId: 'myCanvas',
+        success: function (res) {
+          wx.saveImageToPhotosAlbum({
+            filePath: res.tempFilePath,   //生成的图片路径
+            success(res) {
+              console.log("success");
+            },
+            fail: function (res) {
+              console.log(res);
+            }
+          })
+        }
+      })
+    }, 100)
+    )
+  },
+  closeSave() {
+    this.setData({
+      show: "none"
+    })
+  },
   toSearch() {
-    if(this.data.keyword!=""){
+    if (this.data.keyword != "") {
       wx.navigateTo({ url: '/pages/search/search?keyword=' + this.data.keyword });
     }
   },
@@ -64,14 +120,14 @@ Page({
       this.setData({
         movies_list: movies_list
       })
-    }).then(res=>{
+    }).then(res => {
       http(api.coming_soon).then(res => {//即将上映
         movies_list.push(res.data);
         this.setData({
           movies_list: movies_list
         })
       })
-    }).then(res=>{
+    }).then(res => {
       http(api.top250).then(res => {//top250
         movies_list.push(res.data);
         this.setData({
