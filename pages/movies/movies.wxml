@@ -2,12 +2,13 @@
 <!-- 搜索框 -->
 <view class="search-box">
     <icon type="search" size="13" color="#405F80" class="search-icon" bindtap="toSearch" />
-    <input type="text" placeholder="血战钢锯岭.你的名字" value="{{keyword}}" placeholder-class="search-placeholder"bindinput="setValue" class="search-input" />
-    <image src="../../images/icon_wrong_line.png"class="cancel"wx:if="{{hasTxt}}"bindtap="clearTxt"/>
+    <input type="text" placeholder="血战钢锯岭.你的名字" value="{{keyword}}" placeholder-class="search-placeholder"
+        bindinput="setValue" class="search-input" />
+    <image src="../../images/icon_wrong_line.png" class="cancel" wx:if="{{hasTxt}}" bindtap="clearTxt" />
 </view>
 <!-- 轮播图 -->
-<swiper indicator-dots="{{mySwiper.indicatorDots}}" class="swiper-box" autoplay="{{mySwiper.autoplay}}" interval="{{mySwiper.interval}}"
-    duration="{{mySwiper.duration}}">
+<swiper indicator-dots="{{mySwiper.indicatorDots}}" class="swiper-box" autoplay="{{mySwiper.autoplay}}"
+    interval="{{mySwiper.interval}}" duration="{{mySwiper.duration}}">
     <block wx:for="{{mySwiper.imgUrls}}" wx:key="index">
         <swiper-item>
             <image src="{{mySwiper.imgUrls}}" class="slide-image" width="355" height="150" />
@@ -18,18 +19,17 @@
 <view class="movies-list-box" wx:for="{{movies_list}}" wx:key="index">
     <view class="title-box">
         <text class="title-one">{{movies_title[index]}}</text>
-        <text class="title-two"bindtap="entryArea"data-areamsg="{{index}}">更多 ></text>
+        <text class="title-two" bindtap="entryArea" data-areamsg="{{index}}">更多 ></text>
     </view>
     <view class="movies-list">
         <view class="moview-li" wx:for="{{item.subjects}}" wx:key="index">
-            <image class="movies-img" src="{{item.images.large}}"/>
-            <text class="movies-name  overflow-txt" bindtap="entryDetail"data-itemindex="{{item.id}}">{{item.original_title}}</text>
+            <image class="movies-img" src="{{item.images.large}}" />
+            <text class="movies-name  overflow-txt" bindtap="entryDetail"
+                data-itemindex="{{item.id}}">{{item.original_title}}</text>
             <my-rating rating="{{item.rating}}"></my-rating>
-            <image src="../../images/save.png"class="share"data-img="{{item.images.large}}" bindtap="saveImg"/>
+            <image src="../../images/save.png" class="share" data-img="{{item.images.large}}" bindtap="saveImg" />
         </view>
     </view>
 </view>
 <canvas canvas-id='myCanvas' class="main-canvas" catchtouchmove="touchmove" style="display:{{show}}"></canvas>
-<image src="../../images/close.png"class="closeSave"style="display:{{show}}" bindtap="closeSave"/>
-
-
+<image src="../../images/close.png" class="closeSave" style="display:{{show}}" bindtap="closeSave" />

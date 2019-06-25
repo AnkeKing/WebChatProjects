@@ -25,6 +25,32 @@ Page({
     keyword: "",
     show: "none",
     access_token: "",
+    images: { // 需要添加到海报里的图片信息
+      type: Array,
+      value: [{
+        url: '../../images/cut.png',  // 图片地址
+        width: 200, // 图片要展示的宽度
+        height:200,// 图片要展示的高度
+        x: 100,     // 图片要展示在海报的x
+        y: 20,     // 图片要展示在海报的y
+      }],
+    },
+    width: { // 海报的宽度
+      type: Number,
+      value: 750,
+    },
+    height: { // 海报的高度
+      type: Number,
+      value: 750,
+    },
+    backgroundColor: { // 海报的背景色
+      type: String,
+      value: '#ffffff',
+    },
+    debug: { // 如果为true会展示canvas，为false则会隐藏
+      type: Boolean,
+      value: false,
+    },
   },
   entryDetail(event) {
     wx.navigateTo({ url: '/pages/moviesDetail/moviesDetail?itemindex=' + event.currentTarget.dataset.itemindex })
@@ -48,10 +74,10 @@ Page({
       show: "block"
     })
     var ctx = wx.createCanvasContext('myCanvas');
-    var text="图片已保存到相册，可分享给好友";
+    var text = "图片已保存到相册，可分享给好友";
     ctx.setFontSize(17)
     ctx.setFillStyle("#fff");
-    ctx.fillText(text,20,wx.getSystemInfoSync().windowHeight-50);
+    ctx.fillText(text, 20, wx.getSystemInfoSync().windowHeight - 50);
     ctx.drawImage(
       event.currentTarget.dataset.img,//背景图
       20,
@@ -92,7 +118,7 @@ Page({
     }, 200)
     )
   },
-  touchmove(){
+  touchmove() {
     return false
   },
   closeSave() {
