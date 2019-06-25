@@ -29,7 +29,7 @@
         </view>
     </view>
 </view>
-<canvas canvas-id='myCanvas' class="main-canvas"style="display:{{show}}"></canvas>
+<canvas canvas-id='myCanvas' class="main-canvas" catchtouchmove="touchmove" style="display:{{show}}"></canvas>
 <image src="../../images/close.png"class="closeSave"style="display:{{show}}" bindtap="closeSave"/>
 
 

@@ -89,8 +89,11 @@ Page({
           })
         }
       })
-    }, 100)
+    }, 200)
     )
+  },
+  touchmove(){
+    return false
   },
   closeSave() {
     this.setData({

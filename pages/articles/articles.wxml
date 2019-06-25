@@ -1,7 +1,7 @@
 <!-- pages/articles/articles.wxml -->
 <!-- <view class="articles-frist"> -->
-    <!-- 轮播图 -->
-    <!-- <swiper class="swiper-box" wx:if="{{mySwiper.imgUrls.length>0}}" indicator-dots="{{mySwiper.indicatorDots}}" autoplay="{{mySwiper.autoplay}}" interval="{{mySwiper.interval}}" duration="{{mySwiper.duration}}">
+<!-- 轮播图 -->
+<!-- <swiper class="swiper-box" wx:if="{{mySwiper.imgUrls.length>0}}" indicator-dots="{{mySwiper.indicatorDots}}" autoplay="{{mySwiper.autoplay}}" interval="{{mySwiper.interval}}" duration="{{mySwiper.duration}}">
         <block wx:for="{{mySwiper.imgUrls}}" wx:key="index">
             <swiper-item>
                 <image src="{{mySwiper.imgUrls}}" class="slide-image" width="355" height="150" />
@@ -25,3 +25,16 @@
     <text class="articles-title overflow-txt"bindtap="entryDetail"data-itemindex="{{index}}">{{item.title}}</text>
     <image src="{{item.headImgSrc}}"/>
 </view> -->
+<canvas canvas-id="pie-chart" class="pie-chart"></canvas>
+<view class="del-box">
+    <view class="del-li" wx:for="{{delData}}"wx:key="index">
+        <view class="move" style="right:{{item.magRigth}}"data-moveindex="{{index}}" catchtouchstart='touchStart' catchtouchmove='touchMove' catchtouchend='touchEnd'>
+            <image src="{{item.img}}" class="img" />
+            <text class="txt">{{item.txt}}</text>
+        </view>
+        <view class="del-back">
+            <image src="../../images/cancel.png"class="cancel-img" bindtap="cancel"data-moveindex="{{index}}"/>
+            <text class="del-btn" bindtap="del"data-moveindex="{{index}}">删除</text>
+            </view>
+    </view>
+</view>

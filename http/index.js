@@ -4,7 +4,6 @@ function http(url, data, method) {
     icon: "loading"
   })
   return new Promise((resolve, reject) => {
-    console.log("data",data)
     wx.request({
       url,
       data:JSON.stringify(data),
@@ -13,7 +12,6 @@ function http(url, data, method) {
           resolve(res);
       },
       fail: function (err) {//失败
-        console.log("=========",err)
         reject(err);
       },
       complete: function (res) {//完成
