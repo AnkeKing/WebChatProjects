@@ -2,12 +2,12 @@
   "pages": [
     "pages/articles/articles",
     "pages/movies/movies",
-   
     "pages/index/index",
     "pages/moviesDetail/moviesDetail",
     "pages/search/search",
     "pages/moviesSpecialArea/moviesSpecialArea",
-    "pages/articlesDetail/articlesDetail"
+    "pages/articlesDetail/articlesDetail",
+    "pages/imgCropper/imgCropper"
   ],
   "window": {
     "backgroundTextStyle": "dark",

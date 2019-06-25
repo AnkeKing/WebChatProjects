@@ -163,3 +163,11 @@
     height: 28rpx;
     margin-right: 40rpx;
 }
+.cut-img{
+    position: absolute;
+    top: 20rpx;
+    left: 20rpx;
+    width: 46rpx;
+    height: 46rpx;
+    z-index: 7;
+}

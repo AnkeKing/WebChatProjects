@@ -28,6 +28,7 @@
 <canvas canvas-id="pie-chart" class="pie-chart"></canvas>
 <view class="del-box">
     <view class="del-li" wx:for="{{delData}}"wx:key="index">
+        <image src="../../images/cut.png" class="cut-img"catchtap="entryDetail"data-img="{{item.img}}"/>
         <view class="move" style="right:{{item.magRigth}}"data-moveindex="{{index}}" catchtouchstart='touchStart' catchtouchmove='touchMove' catchtouchend='touchEnd'>
             <image src="{{item.img}}" class="img" />
             <text class="txt">{{item.txt}}</text>
@@ -38,3 +39,4 @@
             </view>
     </view>
 </view>
+<image src="http://tmp/wxafd1cc14688b0460.o6zAJswgYECVKeCBGRbxKL23hCIM.Pa8gzToHtWJ6858594e2e6590e78d00b23bb3a468e7d.png" />

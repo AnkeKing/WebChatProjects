@@ -129,8 +129,9 @@ Page({
     ctx.draw();
   },
   entryDetail(event) {
-    wx.navigateTo({ url: '/pages/articlesDetail/articlesDetail?itemindex=' + event.currentTarget.dataset.itemindex });
-
+    // wx.navigateTo({ url: '/pages/articlesDetail/articlesDetail?itemindex=' + event.currentTarget.dataset.itemindex });
+    wx.navigateTo({ url: '/pages/imgCropper/imgCropper?img='+event.currentTarget.dataset.img});
+    console.log(event);
   },
   touchStart: function (e) {
     let sx = e.touches[0].pageX;
@@ -146,34 +147,38 @@ Page({
       touchE: [sx, sy]
     })
     let delData = this.data.delData;
-    if (wx.getSystemInfoSync().windowWidth - sx > 100) {
-      delData[e.currentTarget.dataset.moveindex].magRigth = "100px"
-      this.setData({
-        delData: delData
-      })
-    }else if(wx.getSystemInfoSync().windowWidth - sx <=0){
-      delData[e.currentTarget.dataset.moveindex].magRigth = "0px"
-      this.setData({
-        delData: delData
-      })
-    }else {
       delData[e.currentTarget.dataset.moveindex].magRigth = wx.getSystemInfoSync().windowWidth - sx + "px"
       this.setData({
         delData: delData
       })
-    }
   },
   touchEnd: function (e) {
-    let start = this.data.touchS;
-    let end = this.data.touchE;
-    console.log("start", start);
-    console.log("end", end);
-    if (start[0] < end[0] - 50) {
-      console.log('右滑')
-    } else if (start[0] > end[0] + 50) {
-      
-    } else {
-      console.log('静止')
+    let start = this.data.touchS;//手指首次接触屏幕的x y坐标
+    let end = this.data.touchE;//手指离开屏幕的x y坐标
+    let delData = this.data.delData;
+    let moveDistance=wx.getSystemInfoSync().windowWidth - end[0];
+    if (start[0] < end[0] - 50) {//右滑
+      delData[e.currentTarget.dataset.moveindex].magRigth = "0px"
+      this.setData({
+        delData: delData
+      })
+    } else if (start[0] > end[0] + 50) {//左滑
+      if(moveDistance>=50){//移动距离
+        delData[e.currentTarget.dataset.moveindex].magRigth = "100px"
+        this.setData({
+          delData: delData
+        })
+      }else{
+        delData[e.currentTarget.dataset.moveindex].magRigth = "0px"
+        this.setData({
+          delData: delData
+        })
+      }
+    } else {//静止
+      delData[e.currentTarget.dataset.moveindex].magRigth = "0px"
+      this.setData({
+        delData: delData
+      })
     }
   },
   del(e){
