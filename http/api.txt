@@ -1,0 +1,36 @@
+封装wx.request()说明：
+
+
+一、在page中引入：
+    const api = require("../../config/config.js");
+    const http = require('../../http/index.js');
+
+二、调用：
+   --- http参数（url, data, method）
+       url : 必传参
+       method :可不传 不传默认为get 
+       data :可不传 传参格式：
+                    {
+                       "width": 280,
+                       "path": "pages/movies/movies"
+                    }
+
+    1.如果多个接口有重复相同的url字符可在config.js中提取为baseUrl,
+      则http函数的参数依赖config.js
+     例子：
+        http(api.in_theaters).then(res => { 
+            console.log(res)
+        })
+    2.如果url比较复杂需要依赖传参就直接调用http函数
+     例子：
+        let form = {
+          "width": 280,
+          "path": "pages/movies/movies"
+        }
+        http(
+          "https://api.weixin.qq.com/cgi-bin/wxaapp/createwxaqrcode?access_token="+ this.data.access_token,
+          form,     
+          "post"
+        ).then(res=>{
+            console.log(res)
+        })
